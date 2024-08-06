@@ -48,8 +48,6 @@ public class AuditMessageConsumer implements RabitMqConsumer {
                       RabbitMQConsumer mqConsumer = receiveResultHandler.result();
                       mqConsumer.handler(
                           message -> {
-                            mqConsumer.pause();
-                            LOGGER.debug("message consumption paused.");
                             JsonObject request = new JsonObject();
                             try {
                               long deliveryTag = message.envelope().getDeliveryTag();
