@@ -48,8 +48,8 @@ public class Constants {
           + "VALUES ('$1','$2','$3',$4,'$5','$6','$7',$8)";
   public static final String RS_WRITE_QUERY_PG =
       "INSERT INTO $0 "
-          + "(id,api,userid,epochtime,resourceid,isotime,providerid,size,time,resource_group,item_type,delegator_id)"
-          + " VALUES ('$1','$2','$3',$4,'$5','$6','$7',$8,'$9','$a','$b','$c')";
+          + "(id,api,userid,epochtime,resourceid,isotime,providerid,size,time,resource_group,item_type,delegator_id,access_type)"
+          + " VALUES ('$1','$2','$3',$4,'$5','$6','$7',$8,'$9','$a','$b','$c','$d')";
   public static final String CAT_WRITE_QUERY_PG =
       "INSERT INTO $0 (id, userRole, userID, iid, api, method, time, iudxID) "
           + "VALUES ('$1','$2','$3','$4','$5','$6',$7,'$8')";
@@ -103,5 +103,6 @@ public class Constants {
           + "(id,userid,api,request_json,size,resourceid,providerid,resource_group,epochtime,time,isotime,delegator_id)"
           + " VALUES ('$1','$2','$3','$4',$5,'$6','$7','$8','$9','$a','$b','$c')";
 
-  public static final String ERROR_UNIQUE_KEY = "(.*)duplicate key value violates unique constraint(.*)";
+  public static final String ERROR_UNIQUE_KEY =
+      "(.*)duplicate key value violates unique constraint(.*)";
 }

@@ -51,8 +51,8 @@ public class ResourceAuditingStrategy implements AuditingServerStrategy {
         .replace("$9", utcTime.toString())
         .replace("$a", resourcegroup)
         .replace("$b", itemType)
-        .replace("$c", delegatorId);
-
+        .replace("$c", delegatorId)
+        .replace("$d", request.getString("access_type"));
   }
 
   @Override

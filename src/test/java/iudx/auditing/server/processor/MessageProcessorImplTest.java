@@ -73,7 +73,8 @@ class MessageProcessorImplTest {
                 .put(RS_IMMUDB_TABLE_NAME, "RS_IMMUDB_TABLE_NAME")
                 .put(RESOURCE_GROUP, "resourceGroup")
                 .put(TYPE, "type")
-                .put(DELEGATOR_ID, "del");
+                .put(DELEGATOR_ID, "del")
+                .put("access_type","api");
 
         when(config.getString((anyString()))).thenReturn("tableName");
         doAnswer(Answer -> Future.succeededFuture()).when(postgresService).executeWriteQuery(any());
@@ -294,7 +295,8 @@ class MessageProcessorImplTest {
                 .put(RS_IMMUDB_TABLE_NAME, "RS_IMMUDB_TABLE_NAME")
                 .put(RESOURCE_GROUP, "resourceGroup")
                 .put(TYPE, "type")
-                .put(DELEGATOR_ID, "delegator");
+                .put(DELEGATOR_ID, "delegator")
+                .put("access_type","api");
 
         when(config.getString((anyString()))).thenReturn("tableName");
 
@@ -351,7 +353,8 @@ class MessageProcessorImplTest {
                 .put(TYPE, "type")
                 .put(DELEGATOR_ID, "del")
                 .put("eventType", "SUBS_CREATED")
-                .put("subscriptionID", "subscriptionID");
+                .put("subscriptionID", "subscriptionID")
+                .put("access_type","sub");;
 
         when(config.getString((anyString()))).thenReturn("");
         doAnswer(Answer -> Future.succeededFuture()).when(postgresService).executeWriteQuery(any());
@@ -383,7 +386,8 @@ class MessageProcessorImplTest {
                 .put(TYPE, "type")
                 .put(DELEGATOR_ID, "del")
                 .put("eventType", "SUBS_DELETED")
-                .put("subscriptionID", "SUBSDELETED");
+                .put("subscriptionID", "SUBSDELETED")
+                .put("access_type","api");;
 
         when(config.getString((anyString()))).thenReturn("tableName");
         doAnswer(Answer -> Future.succeededFuture()).when(postgresService).executeWriteQuery(any());
@@ -415,7 +419,8 @@ class MessageProcessorImplTest {
                 .put(TYPE, "type")
                 .put(DELEGATOR_ID, "del")
                 .put("eventType", "SUBS_APPEND")
-                .put("subscriptionID", "SUBSDELETED");
+                .put("subscriptionID", "SUBSDELETED")
+                .put("access_type","api");
 
         when(config.getString((anyString()))).thenReturn("tableName");
         doAnswer(Answer -> Future.succeededFuture()).when(postgresService).executeWriteQuery(any());
