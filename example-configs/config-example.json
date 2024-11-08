@@ -1,5 +1,10 @@
 {
   "version": "1.0",
+  "zookeepers": [
+    "zookeeper"
+  ],
+  "clusterId": "cluster-id",
+  "host": "audit-host",
   "modules": [
     {
       "id": "iudx.auditing.server.rabbitmq.RabbitMqVerticle",
@@ -28,8 +33,14 @@
       "postgresRsTableName": "",
       "postgresCatTableName": "",
       "postgresAuthTableName": "",
+      "postgresOgcTableName": "",
       "postgresConsentLogTableName": "",
-      "immudbConsentLogTableName": ""
+      "immudbConsentLogTableName": "",
+      "immudbOgcTableName": "",
+      "postgresAclApdTableName": "",
+      "immudbApdTableName": "",
+      "postgresDmpApdTableName": "",
+      "immudbDmpApdTableName": ""
     },
     {
       "id": "iudx.auditing.server.postgres.PostgresVerticle",
@@ -42,7 +53,7 @@
       "poolSize": 25
     },
     {
-      "id": "iudx.auditing.server.metering.MeteringVerticle",
+      "id": "iudx.auditing.server.metering.ImmudbVerticle",
       "isWorkerVerticle": false,
       "verticleInstances": 1,
       "meteringDatabaseIP": "db-ip",
@@ -56,7 +67,14 @@
       "meteringCATDatabaseName": "cat-db-name",
       "meteringCATDatabaseUserName": "cat-db-userName",
       "meteringCATDatabasePassword": "cat-db-password",
+      "meteringOgcDatabaseName": "ogc-db-name",
+      "meteringOgcDatabaseUserName": "ogc-db-userName",
+      "meteringOgcDatabasePassword": "ogc-db-password",
       "meteringPoolSize": 25
+    },
+    {
+      "id": "iudx.auditing.server.cache.CacheVerticle",
+      "verticleInstances": 1
     }
   ]
 }
